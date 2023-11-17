@@ -1,4 +1,4 @@
-package ua.nure.fan;
+package ua.nure.fan.lab1;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -57,7 +57,7 @@ public class MultiThreadedEdgeDetection {
 
             executorService.submit(() -> {
                 for (int i = startPoint; i < endPoint; i++) {
-                    for (int j = 1; j < height - 1; j++) {
+                    for (int j = 0; j < height; j++) {
                         //convert to grayscale
                         int rgb = img.getRGB(i, j);
 
@@ -93,7 +93,7 @@ public class MultiThreadedEdgeDetection {
             }
             executorService.submit(() -> {
                 for (int x = startPoint; x < endPoint; x++) {
-                    for (int y = 1; y < height - 1; y++) {
+                    for (int y = 0; y < height; y++) {
                         if (x == 0 || x == (width - 1) || y == 0 || y == (height - 1)) {
                             int blackRGB = black.getRGB();
                             edgesX.setRGB(x, y, 0xff000000 | (blackRGB << 16) | (blackRGB << 8) | blackRGB);
@@ -121,7 +121,6 @@ public class MultiThreadedEdgeDetection {
         }
         executorService.shutdown();
         executorService.awaitTermination(1, TimeUnit.MINUTES);
-
         return result;
     }
 

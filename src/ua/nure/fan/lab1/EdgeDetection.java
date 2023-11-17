@@ -1,4 +1,4 @@
-package ua.nure.fan;
+package ua.nure.fan.lab1;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
