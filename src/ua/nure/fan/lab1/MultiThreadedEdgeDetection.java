@@ -26,12 +26,12 @@ public class MultiThreadedEdgeDetection {
     public void demo(String initialImagePath, String outputImagePath) throws IOException, InterruptedException {
         BufferedImage imgIn = ImageIO.read(new File(initialImagePath));
         var timer = System.currentTimeMillis();
-        BufferedImage result = applySobleFilter(imgIn);
+        BufferedImage result = applySobelFilter(imgIn);
         System.out.println("Processing took " + (System.currentTimeMillis() - timer) + "ms");
         ImageIO.write(result, "PNG", new File(outputImagePath));
     }
 
-    private BufferedImage applySobleFilter(BufferedImage img) throws InterruptedException {
+    private BufferedImage applySobelFilter(BufferedImage img) throws InterruptedException {
         //get image width and height
         int width = img.getWidth();
         int height = img.getHeight();
@@ -45,6 +45,43 @@ public class MultiThreadedEdgeDetection {
         int widthPerThread = width / threadsQuantity;
         int currentThread = 0;
         int currentX = 0;
+
+        for (int k = 0; k < threadsQuantity; k++) {
+            int startPoint = currentX;
+            int endPoint;
+            if (currentThread < threadsQuantity) {
+                endPoint = currentX + widthPerThread;
+            } else {
+                endPoint = width;
+            }
+
+            executorService.submit(() -> {
+                for (int i = startPoint; i < endPoint; i++) {
+                    for (int j = 0; j < height; j++) {
+                        //convert to grayscale
+                        int rgb = img.getRGB(i, j);
+
+                        int a = (rgb >> 24) & 0xff; //channel Alpha - measure of transparency
+                        int r = (rgb >> 16) & 0xff; //red
+                        int g = (rgb >> 8) & 0xff; //green
+                        int b = rgb & 0xff; //blue
+
+                        //calculate average
+                        int avg = (r + g + b) / 3;
+
+                        //replace RGB value with avg
+                        rgb = (a << 24) | (avg << 16) | (avg << 8) | avg;
+                        //set new RGB value
+                        img.setRGB(i, j, rgb);
+                    }
+                }
+            });
+            currentThread++;
+            currentX = endPoint;
+        }
+
+        currentThread = 0;
+        currentX = 0;
 
         for (int k = 0; k < threadsQuantity; k++) {
             int startPoint = currentX;

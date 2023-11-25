@@ -32,6 +32,27 @@ public class EdgeDetection {
         BufferedImage result = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Color black = new Color(0, 0, 0);
 
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                //convert to grayscale
+                int rgb = img.getRGB(x, y);
+
+                int a = (rgb >> 24) & 0xff; //channel Alpha - measure of transparency
+                int r = (rgb >> 16) & 0xff; //red
+                int g = (rgb >> 8) & 0xff; //green
+                int b = rgb & 0xff; //blue
+
+                //calculate average
+                int avg = (r + g + b) / 3;
+
+                //replace RGB value with avg
+                rgb = (a << 24) | (avg << 16) | (avg << 8) | avg;
+                //set new RGB value
+                img.setRGB(x, y, rgb);
+
+            }
+        }
+
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
@@ -66,6 +87,6 @@ public class EdgeDetection {
         for (int i = 0; i < pixel.length; i++) {
             result += kernel[i] * pixel[i];
         }
-        return (int) (Math.abs(result)/4);
+        return (int) (Math.abs(result) / 4);
     }
 }

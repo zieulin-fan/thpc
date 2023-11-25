@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d0e9361-88c4-431e-b803-61af6e00c346" name="Changes" comment="editing packages">
+    <list default="true" id="0d0e9361-88c4-431e-b803-61af6e00c346" name="Changes" comment="deleting the process of converting image to greyscale">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ua/nure/fan/lab1/EdgeDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ua/nure/fan/lab1/EdgeDetection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ua/nure/fan/lab1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ua/nure/fan/lab1/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ua/nure/fan/lab1/MultiThreadedEdgeDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ua/nure/fan/lab1/MultiThreadedEdgeDetection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wallpaperOutMulti.png" beforeDir="false" afterPath="$PROJECT_DIR$/wallpaperOutMulti.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +19,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -27,18 +30,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/university/VII семестр (2023-2024)/ТВО/thpc",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/university/VII семестр (2023-2024)/ТВО/thpc&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\university\VII семестр (2023-2024)\ТВО\thpc" />
@@ -73,8 +76,31 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700247738236</updated>
-      <workItem from="1700247739647" duration="2214000" />
+      <workItem from="1700247739647" duration="2916000" />
+      <workItem from="1700947893362" duration="3390000" />
     </task>
+    <task id="LOCAL-00001" summary="editing packages">
+      <created>1700250405385</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700250405385</updated>
+    </task>
+    <task id="LOCAL-00002" summary="output images">
+      <created>1700250431343</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700250431343</updated>
+    </task>
+    <task id="LOCAL-00003" summary="deleting the process of converting image to greyscale">
+      <created>1700949755416</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700949755417</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,6 +119,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="editing packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="editing packages" />
+    <MESSAGE value="output images" />
+    <MESSAGE value="deleting the process of converting image to greyscale" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleting the process of converting image to greyscale" />
   </component>
 </project>
