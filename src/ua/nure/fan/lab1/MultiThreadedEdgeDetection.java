@@ -54,43 +54,6 @@ public class MultiThreadedEdgeDetection {
             } else {
                 endPoint = width;
             }
-
-            executorService.submit(() -> {
-                for (int i = startPoint; i < endPoint; i++) {
-                    for (int j = 0; j < height; j++) {
-                        //convert to grayscale
-                        int rgb = img.getRGB(i, j);
-
-                        int a = (rgb >> 24) & 0xff; //channel Alpha - measure of transparency
-                        int r = (rgb >> 16) & 0xff; //red
-                        int g = (rgb >> 8) & 0xff; //green
-                        int b = rgb & 0xff; //blue
-
-                        //calculate average
-                        int avg = (r + g + b) / 3;
-
-                        //replace RGB value with avg
-                        rgb = (a << 24) | (avg << 16) | (avg << 8) | avg;
-                        //set new RGB value
-                        img.setRGB(i, j, rgb);
-                    }
-                }
-            });
-            currentThread++;
-            currentX = endPoint;
-        }
-
-        currentThread = 0;
-        currentX = 0;
-
-        for (int k = 0; k < threadsQuantity; k++) {
-            int startPoint = currentX;
-            int endPoint;
-            if (currentThread < threadsQuantity) {
-                endPoint = currentX + widthPerThread;
-            } else {
-                endPoint = width;
-            }
             executorService.submit(() -> {
                 for (int x = startPoint; x < endPoint; x++) {
                     for (int y = 0; y < height; y++) {
@@ -124,7 +87,7 @@ public class MultiThreadedEdgeDetection {
         return result;
     }
 
-    private static int convolution(int[] kernel, int[] pixel) {
+    private int convolution(int[] kernel, int[] pixel) {
         int result = 0;
         //get Gx/Gy by multiplying each filter value by a pixel value
         // and then summing the products together
